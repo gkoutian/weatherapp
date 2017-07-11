@@ -45,11 +45,14 @@ for (var i = 0; i <= 5; i++) {
 
 setTimeout(function () {
 	cambiarDias();
-	console.log("La temperatura de hoy " + dia[0] + " es de " + tempAct);
-	console.log("La maxima es de " + tempM[0] + " y la minima es de " + tempL[0]);	
-	for (var i = 1; i <= 5; i++) {
-		console.log("Las temperaturas del " + dia[i] + " son maxima: " + tempM[i] + " y la minima es " + tempL[i]);
-	}
+  var parrafo = document.createElement("p");
+  parrafo.innerHTML = "La temperatura de hoy " + dia[0] + " es de " + tempAct + "\nLa maxima es de " + tempM[0] + " y la minima es de " + tempL[0];
+  for (var i = 1; i <= 5; i++) {
+    parrafo.innerHTML += "\nLas temperaturas del " + dia[i] + " son maxima: " + tempM[i] + " y la minima es " + tempL[i];
+  }
+  var pre = document.createElement("pre");
+  pre.appendChild(parrafo)
+  document.body.appendChild(pre);
 }, 2000);
 
 
