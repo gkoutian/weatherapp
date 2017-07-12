@@ -9,9 +9,18 @@
 	
 </head>
 <body>
-<div class="box container">
+<div id="myNav" class="overlay">
+	<div class="overlay-content">
+		<img src="img/sun.png">
+		<h3>GK clima</h3>
+		<h1>cargando...</h1>
+	</div>
+</div>
+
+
+<div class="container">
 	<section id="clima-actual">
-		<img id="imagen" src="http://placehold.it/380x330/eff3f9">
+		<img id="imagen" src="img/logo.png">
 		<h1 id="ciudad" class="naranja">buenos aires</h1>
 		<h4 id="actual">lunes | julio 12 | 12:34</h4>
 		<h5 id="actualidad" class="naranja">max<span id="max-act">29°</span><span id="temp-act">27°</span><span id="min-act">14°</span>min</h5>
@@ -84,6 +93,7 @@
 		</div>
 	</section>	
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {

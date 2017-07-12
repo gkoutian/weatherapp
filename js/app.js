@@ -1,6 +1,5 @@
-  
+ 
 var tempAct;
-var estado;
 var humedad;
 var vienteo;
 var clima;
@@ -16,7 +15,6 @@ var callbackFunction = function(data) {
 	var datos = data.query.results.channel.item;
   viento = Math.floor(data.query.results.channel.wind.speed - 10);
   humedad = data.query.results.channel.atmosphere.humidity;
-  estado = datos.condition.text;
   clima = datos.condition.code;
   console.log(data);
   	tempAct = datos.condition.temp;
@@ -105,7 +103,6 @@ function darColor () {
           document.getElementById("logo" + i).className += " azul";
       }
     }
-    document.getElementById("imagen").src = "http://placehold.it/380x330/eff3f9?text=" + estado;
     if (clima == 19 || clima == 31 || clima ==  32 || clima ==  33 || clima ==  34 || clima ==  36 || clima ==  44) {
           document.getElementById("ciudad").className = "naranja";
           document.getElementById("actualidad").className = "naranja";
@@ -120,7 +117,11 @@ function darColor () {
 
 function conseguirFecha () {
   document.getElementById("actual").innerHTML = sem[d.getDay()] + " | " + mes[d.getMonth()] + " " + d.getDate() + " | " + d.getHours() + ":" + d.getMinutes();
-}
+};
+
+setTimeout(function () {
+     document.getElementById("myNav").style.height = "0%";
+}, 3000);
 
 setTimeout(function () {
 	cambiarDias();
