@@ -1,0 +1,120 @@
+body {
+	background-color: #ccc;
+}
+
+.container {
+	display: flex;
+	width: 760px;
+	
+}
+
+.naranja {
+	color: #D9571F;
+}
+
+.gris {
+	color: #6E6462;
+}
+
+.azul {
+	color: #1B7DC9;
+}
+
+#pronostico {
+	border-radius: 20px;
+	box-shadow: 0px 10px 40px rgba(0,0,0,0.5);
+}
+
+#arribaderecha {
+	border-top-right-radius: 20px;
+}
+
+#abajoderecha {
+	border-bottom-right-radius: 20px;
+}
+
+.pronosticos {
+	display: flex;
+	align-items: center;
+	text-align: left;
+	background-color: #fff;
+	border-bottom: 1px solid #f2f2f2;
+} 
+
+#clima-actual {
+	background-color: #fff;
+	text-align: center;
+	width: 380px;
+	height: 550px;
+	box-shadow: 0px 10px 40px rgba(0,0,0,0.5); 
+}
+
+.parts  {
+	width: 190px;
+	height: 109px;
+}
+
+.pronosticos i  {
+	margin-left: 50px;
+}
+
+.pronosticos > :first-child {
+	text-align: right;
+}
+
+.numeros {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+h1 {
+	font-size: 17px;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	letter-spacing: 3px;
+	padding-top: 30px;
+}
+
+#clima-actual h1 {
+	letter-spacing: 5px;
+	padding-top: 10px;
+}
+
+#clima-actual {
+	border-bottom-left-radius:  20px;
+	border-top-left-radius: 20px;
+}
+
+img {
+	border-top-left-radius: 20px;
+}
+
+ i {
+	font-size: 34px;
+	padding-top: 40px;
+}
+
+h2 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 34px;
+	font-weight: 500;
+	padding-top: 4px;
+}
+
+h3 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
+	font-weight: 300;
+}
+
+h4 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	padding-top: 10px;
+	letter-spacing: 5px;
+	color: #ccc;
+	text-transform: uppercase;
+}

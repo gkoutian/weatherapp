@@ -1,11 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Weather GK</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/weather-icons.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
 </head>
 <body>
-
-</body>
+<div class="box container">
+	<section id="clima-actual">
+		<img src="http://placehold.it/380x330/eff3f9">
+		<h1 class="naranja">buenos aires</h1>
+		<h4>lunes | julio 12 | 12:34</h4>
+		<h3>max 29° 27° 14° min</h3>
+		<footer>
+			<h4><i class="wind"></i>14 kmh</h4>
+			<h4>22% <i class=""></i></h4>
+		</footer>
+	</section>
+	<section id="pronostico">
+		<div class="flex-master">
+			<div class="flex1">
+				<article id="arribaderecha" class="pronosticos">
+					<div class="parts">
+						<h1 id="dia1" class="naranja">lunes</h1>
+						<div class="numeros">
+							<h2 id="tempM1" class="naranja">29°</h2><h3 id="tempL1" class="naranja">14°</h3>
+						</div>
+					</div>
+					<div class="parts">
+						<i id="logo1" class="wi wi-day-sunny naranja"></i>
+					</div>
+				</article>
+				<article class="pronosticos">
+					<div class="parts">
+						<h1 id="dia2" class="gris">martes</h1>
+						<div class="numeros">
+							<h2 id="tempM2" class="gris">17°</h2><h3 id="tempL2" class="gris">9°</h3>
+						</div>
+					</div>
+					<div class="parts">
+						<i id="logo2" class="wi wi-cloud gris"></i>
+					</div>
+				</article>
+				<article class="pronosticos">
+					<div class="parts">
+						<h1 id="dia3" class="azul">miercoles</h1>
+						<div class="numeros">
+							<h2 id="tempM3" class="azul">14°</h2><h3 id="tempL3" class="azul">5°</h3>
+						</div>	
+					</div>
+					<div class="parts">
+						<i id="logo3" class="wi wi-rain azul"></i>
+					</div>
+				</article>
+			</div>
+			<div class="flex2">
+				<article class="pronosticos">
+					<div class="parts">
+						<h1 id="dia4" class="azul">jueves</h1>
+						<div class="numeros">
+							<h2 id="tempM4" class="azul">16°</h2><h3 id="tempL4" class="azul">8°</h3>
+						</div>
+					</div>
+					<div class="parts">
+						<i id="logo4" class="wi wi-rain azul"></i>
+					</div>
+				</article>
+				<article id="abajoderecha" class="pronosticos">
+					<div class="parts">
+						<h1 id="dia5" class="gris">viernes</h1>
+						<div class="numeros">
+							<h2 id="tempM5" class="gris">20°</h2><h3 id="tempL5" class="gris">12°</h3>
+						</div>
+					</div>
+					<div class="parts">
+						<i id="logo5" class="wi wi-cloud gris"></i>
+					</div>
+				</article>
+			</div>			
+		</div>
+	</section>	
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(updateBoxDimension);
+	$(window).on('resize', updateBoxDimension);
+	function updateBoxDimension() {
+    	var $container = $('.container');
+    	var containerTop = ($(window).height()) / 2 - ($container.height() / 2);
+    	var containerLeft = (($(window).width()) - ($container.width())) / 2;
+    	$container.css({marginTop: containerTop});
+    	$container.css({marginLeft: containerLeft});
+    }
+});
+</script>
 <script type="text/javascript" src="js/app.js"></script>
 <script src="https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22buenos%20aires%2C%20ar%22)%20and%20u=%22c%22&format=json&callback=callbackFunction"></script>
+</body>
 </html>
