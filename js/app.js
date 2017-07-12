@@ -1,5 +1,12 @@
   
 var tempAct;
+var estado;
+var humedad;
+var vienteo;
+var clima;
+var d= new Date();
+var mes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+var sem = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 var dia = [];
 var tempM = [];
 var tempL = [];
@@ -7,7 +14,11 @@ var code = [];
 
 var callbackFunction = function(data) {
 	var datos = data.query.results.channel.item;
-  console.log(datos);
+  viento = Math.floor(data.query.results.channel.wind.speed - 10);
+  humedad = data.query.results.channel.atmosphere.humidity;
+  estado = datos.condition.text;
+  clima = datos.condition.code;
+  console.log(data);
   	tempAct = datos.condition.temp;
   	for (var i = 0; i <= 5; i++) {
   		dia[i] = datos.forecast[i].day;
@@ -67,33 +78,55 @@ function escribirDatos () {
   document.getElementById("logo3").className = "wi wi-yahoo-" + code[3];
   document.getElementById("logo4").className = "wi wi-yahoo-" + code[4];
   document.getElementById("logo5").className = "wi wi-yahoo-" + code[5];
+  document.getElementById("viento").innerHTML = viento;
+  document.getElementById("humedad").innerHTML = humedad;
+  document.getElementById("max-act").innerHTML = tempM[0] + "°";
+  document.getElementById("min-act").innerHTML = tempL[0] + "°";
+  document.getElementById("temp-act").innerHTML = tempAct + "°";
+
 };
 
 function darColor () {
-for (var i = 1; i <= 5; i++) {
-  if (code[i] == 19 || code[i] == 31 || code[i] ==  32 || code[i] ==  33 || code[i] ==  34 || code[i] ==  36 || code[i] ==  44) {
-      document.getElementById("dia" + i).className = "naranja";
-      document.getElementById("tempM" + i).className = "naranja";
-      document.getElementById("tempL" + i).className = "naranja";
-      document.getElementById("logo" + i).className += " naranja";
-  } else if (code[i] == 0 || code[i] == 2 || code[i]  == 13 || code[i] == 14 || code[i] == 15 || code[i] == 16 || code[i] == 20 || code[i] == 21 || code[i] == 22 || code[i] == 23 || code[i] == 24 || code[i] == 26 || code[i] == 27 || code[i] == 28 || code[i] == 29 || code[i] == 30 ) {
-      document.getElementById("dia" + i).className = "gris";
-      document.getElementById("tempM" + i).className = "gris";
-      document.getElementById("tempL" + i).className = "gris";
-      document.getElementById("logo" + i).className += " gris";
-  } else {
-      document.getElementById("dia" + i).className = "azul";
-      document.getElementById("tempM" + i).className = "azul";
-      document.getElementById("tempL" + i).className = "azul";
-      document.getElementById("logo" + i).className += " azul";
-  }
-}
+    for (var i = 1; i <= 5; i++) {
+      if (code[i] == 19 || code[i] == 31 || code[i] ==  32 || code[i] ==  33 || code[i] ==  34 || code[i] ==  36 || code[i] ==  44) {
+          document.getElementById("dia" + i).className = "naranja";
+          document.getElementById("tempM" + i).className = "naranja";
+          document.getElementById("tempL" + i).className = "naranja";
+          document.getElementById("logo" + i).className += " naranja";
+      } else if (code[i] == 0 || code[i] == 2 || code[i]  == 13 || code[i] == 14 || code[i] == 15 || code[i] == 16 || code[i] == 20 || code[i] == 21 || code[i] == 22 || code[i] == 23 || code[i] == 24 || code[i] == 26 || code[i] == 27 || code[i] == 28 || code[i] == 29 || code[i] == 30 ) {
+          document.getElementById("dia" + i).className = "gris";
+          document.getElementById("tempM" + i).className = "gris";
+          document.getElementById("tempL" + i).className = "gris";
+          document.getElementById("logo" + i).className += " gris";
+      } else {
+          document.getElementById("dia" + i).className = "azul";
+          document.getElementById("tempM" + i).className = "azul";
+          document.getElementById("tempL" + i).className = "azul";
+          document.getElementById("logo" + i).className += " azul";
+      }
+    }
+    document.getElementById("imagen").src = "http://placehold.it/380x330/eff3f9?text=" + estado;
+    if (clima == 19 || clima == 31 || clima ==  32 || clima ==  33 || clima ==  34 || clima ==  36 || clima ==  44) {
+          document.getElementById("ciudad").className = "naranja";
+          document.getElementById("actualidad").className = "naranja";
+      } else if (clima == 0 || clima == 2 || clima  == 13 || clima == 14 || clima == 15 || clima == 16 || clima == 20 || clima == 21 || clima == 22 || clima == 23 || clima == 24 || clima == 26 || clima == 27 || clima == 28 || clima == 29 || clima == 30 ) {
+          document.getElementById("ciudad").className = "gris";
+          document.getElementById("actualidad").className = "gris";
+      } else {
+          document.getElementById("ciudad").className = "azul";
+          document.getElementById("actualidad").className = "azul";
+      }
 };
+
+function conseguirFecha () {
+  document.getElementById("actual").innerHTML = sem[d.getDay()] + " | " + mes[d.getMonth()] + " " + d.getDate() + " | " + d.getHours() + ":" + d.getMinutes();
+}
 
 setTimeout(function () {
 	cambiarDias();
   escribirDatos();
-  darColor();
+  conseguirFecha();
+  darColor();  
 }, 2000);
 
 
