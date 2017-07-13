@@ -1,25 +1,24 @@
 
 
 .overlay {
-	/* Height & width depends on how you want to reveal the overlay (see JS below) */    
     height: 100%;
     width: 100%;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 1); /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 1);
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 .overlay-content {
     position: relative;
-    top: 33%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    top: 33%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .overlay h1, .overlay h3 {
@@ -194,4 +193,60 @@ h5 span {
 #temp-act {
 	font-size: 60px;
 	font-weight: 500;
+}
+
+@media screen and (max-width: 1150px) {
+	.container {
+		flex-direction: column;
+	}
+	.pronosticos {
+		display: flex;
+		flex-direction: column;
+		width: 127px;
+	}
+	.flex2 {
+		display: none;
+	}
+	.flex1 {
+		display: flex;
+	}
+ 	#clima-actual, #pronostico {
+ 		box-shadow: none;
+ 	}
+ 	#arribaderecha {
+	border-top-right-radius: 0px;
+	}
+	img {
+		border-radius: 0px;
+	}
+	.parts {
+		text-align: center;
+	}
+	.numeros {
+		justify-content: center;	
+	}
+	.parts {
+		width: 127px;
+		text-align: center;
+	}
+	.pronosticos > :first-child {
+		text-align: center;
+	}
+	#clima-actual {
+		border-bottom-left-radius: 0px;
+		border-top-left-radius: 0px;
+	}
+	.parts i {
+		margin-left: 0px;
+	}
+	i {
+		padding-top: 0px;
+	}
+	.pronosticos > :last-child {
+		height: 60px;
+	}
+	.container {
+		width: 380px;
+		margin-right: 0px;
+	}
 }
