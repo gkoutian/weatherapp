@@ -21,15 +21,14 @@ function showPosition(position) {
 
 setTimeout( function () {
   if (lat == undefined) {
-   lat = "40.7141667";
-   long = "-74.0063889"  
-}
+     lat = "40.7141667";
+    long = "-74.0063889"  
+  }
   var script   = document.createElement("script");
   script.type  = "text/javascript";
   script.src   = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(SELECT%20woeid%20FROM%20geo.places%20WHERE%20text%3D%22(" + lat + "%2C" + long + ")%22)%20and%20u=%22c%22&format=json&callback=callbackFunction";
-document.body.appendChild(script);
-
-} 1000,)
+  document.body.appendChild(script);
+}, 1000)
 
 
 
