@@ -103,9 +103,11 @@ $(document).ready(function() {
 	$(window).on('resize', updateBoxDimension);
 	function updateBoxDimension() {
     	var $container = $('.container');
-    	var containerTop = ($(window).height()) / 2 - ($container.height() / 2);
+    	if ($(window).height() > 650) {
+    		var containerTop = ($(window).height()) / 2 - ($container.height() / 2);
+    		$container.css({marginTop: containerTop});
+    	}
     	var containerLeft = (($(window).width()) - ($container.width())) / 2;
-    	$container.css({marginTop: containerTop});
     	$container.css({marginLeft: containerLeft});
     }
 });
