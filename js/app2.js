@@ -148,4 +148,4 @@ setTimeout(function () {
         $("#myNav").height(0);
   	}
   });
-}, 500)
+}, 2000)
