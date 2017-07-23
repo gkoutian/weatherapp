@@ -39,7 +39,7 @@ var callbackFunction = function(data) {
     humedad = data.query.results.channel.atmosphere.humidity;
     ciudad = data.query.results.channel.location.city;
     clima = datos.condition.code;
-      tempAct = datos.condition.temp;
+    empAct = datos.condition.temp;
       for (var i = 0; i <= 5; i++) {
         dia[i] = datos.forecast[i].day;
         tempM[i] = datos.forecast[i].high;
@@ -49,34 +49,6 @@ var callbackFunction = function(data) {
     }, 500);
 };
 
-function cambiarDias () {
-for (var i = 0; i <= 5; i++) {
-  		var dias = dia[i];
-  		switch (dias) {
-  			case "Mon":
-  				dia[i] = "Lunes";
-  				break;
-  			case "Tue":
-  				dia[i] = "Martes";
-  				break;
-  			case "Wed":
-  				dia[i] = "Miercoles";
-  				break;
-  			case "Thu":
-  				dia[i] = "Jueves";
-  				break;
-  			case "Fri":
-  				dia[i] = "Viernes";
-  				break;
-  			case "Sat":
-  				dia[i] = "Sabado";
-  				break;
-  			case "Sun":
-  				dia[i] = "Domingo";
-  				break;
-  		}
-  	}
-}
 
 function escribirDatos () {
   document.getElementById("dia1").innerHTML = dia[1];
