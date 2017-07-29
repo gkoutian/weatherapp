@@ -18,15 +18,14 @@
     top: 33%;
     width: 100%;
     text-align: center;
-    margin-top: 30px;
 }
 
 .overlay h1, .overlay h3 {
     color: white;
+    padding-top: 15px;
 }
 
 .overlay-content h3 {
-	padding-top: 20px;
 	font-size: 40px;
 }
 

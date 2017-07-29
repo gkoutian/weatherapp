@@ -1,3 +1,4 @@
+(function () {
 $(document).ready(function() {
   $(updateBoxDimension);
   $(window).on('resize', updateBoxDimension);
@@ -27,10 +28,26 @@ var tempM = [];
 var tempL = [];
 var code = [];
 
-navigator.geolocation.getCurrentPosition(showPosition)
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition,basicPosition);
+} else {
+    console.log("Este explorador no soporta geolocalizacion");
+    lat = -34.5977063;
+    long = -58.4344687;
+    iniciar(lat, long);
+}
+
 function showPosition(position) {
   lat = position.coords.latitude;
   long = position.coords.longitude;
+  iniciar(lat, long);
+  console.log("salio bien")
+}
+function basicPosition() {
+  lat = -34.5977063;
+  long = -58.4344687;
+  iniciar(lat, long);
+  console.log("no se pudo")
 }
 
 function cambiarDias () {
@@ -127,7 +144,7 @@ function conseguirFecha () {
   $("#actual").text(sem[d.getDay()] + " | " + mes[d.getMonth()] + " " + d.getDate() + " | " + d.getHours() + ":" + d.getMinutes());
 };
 
-setTimeout(function () {
+function iniciar (lat, long) {
   $.ajax({url:'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22(' + lat + '%2C' + long + ')%22)%20and%20u=%22c%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys', success: function(json_weather){
   		 var datos = json_weather.query.results.channel.item;
   	    viento = Math.floor(json_weather.query.results.channel.wind.speed - 10);
@@ -148,4 +165,5 @@ setTimeout(function () {
         $("#myNav").height(0);
   	}
   });
-}, 2000)
+}
+})();
