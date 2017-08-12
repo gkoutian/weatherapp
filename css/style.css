@@ -1,65 +1,8 @@
-
-
-.overlay {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 1);
-    overflow-x: hidden;
-    transition: 0.5s;
-}
-
-.overlay-content {
-    position: relative;
-    top: 33%;
-    width: 100%;
-    text-align: center;
-}
-
-.overlay h1, .overlay h3 {
-    color: white;
-    padding-top: 15px;
-}
-
-.overlay-content h3 {
-	font-size: 40px;
-}
-
-/*
-el overlayyyyy!!!
-*/
-
-body {
-	background-color: #ccc;
-}
-
-.container {
+.container, footer, .pronosticos, .numeros {
 	display: flex;
-	width: 760px;
-	
 }
 
-footer {
-	display: flex;
-	justify-content: space-between;
-	padding-left: 20px;
-	padding-right: 20px;
-}
-
-footer h4, footer i {
-	padding-top: 0px;
-	font-size: 20px;
-	letter-spacing: 0px;
-}
-
-footer .min {
-	font-size: 10px;
-	font-weight: 300;
-}
+/* COLORES DE ICONOS */
 
 .naranja {
 	color: #D9571F;
@@ -73,38 +16,118 @@ footer .min {
 	color: #1B7DC9;
 }
 
+/* FONT WEIGHTS */
+
+.fw300, h3 {
+	font-weight: 300;
+}
+
+.fw500, h2, h4 {
+	font-weight: 500;
+}
+
+.fw800 {
+	font-weight: 800;
+}
+
+/*  RADIO BORDES  */ 
+
+.radio-arriba-derecha {
+	border-top-right-radius: 20px;
+}
+
+.radio-abajo-derecha {
+	border-bottom-right-radius: 20px;
+}
+
+.radio-abajo-izquierda {
+	border-bottom-left-radius:  20px;
+}
+
+.radio-arriba-izquierda {
+	border-top-left-radius: 20px;
+}
+
+/* OVERLAY CARGANDO */
+
+.cargando {
+	background-color: black;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    transition: 0.5s;
+    width: 100%;
+    z-index: 1;
+}
+
+.cargando-contenido {
+    position: relative;
+    text-align: center;
+    top: 33%;
+}
+
+.cargando h1, .cargando h3 {
+    color: white;
+    padding-top: 15px;
+}
+
+.cargando-contenido h3 {
+	font-size: 40px;
+}
+
+/* PRINCIPAL */
+
+body {
+	background-color: #ccc;
+	font-family: 'Montserrat', sans-serif;
+	width: 100%;
+}
+
+.container {
+	width: 760px;
+}
+
+footer {
+	justify-content: space-between;
+	padding: 0 20px 0 20px;
+}
+
+footer h4, footer i {
+	font-size: 20px;
+	letter-spacing: 0px;
+	padding-top: 0px;
+}
+
+footer .min {
+	font-size: 10px;
+}
+
+
 #pronostico {
 	border-radius: 20px;
 	box-shadow: 0px 20px 40px rgba(0,0,0,0.3);
 }
 
-#arribaderecha {
-	border-top-right-radius: 20px;
-}
-
-#abajoderecha {
-	border-bottom-right-radius: 20px;
-}
-
 .pronosticos {
-	display: flex;
 	align-items: center;
-	text-align: left;
 	background-color: #fff;
 	border-bottom: 1px solid #f2f2f2;
+	text-align: left;
 } 
 
 #clima-actual {
 	background-color: #fff;
+	box-shadow: 0px 20px 40px rgba(0,0,0,0.3); 
+	height: 550px;
 	text-align: center;
 	width: 380px;
-	height: 550px;
-	box-shadow: 0px 20px 40px rgba(0,0,0,0.3); 
 }
 
 .parts  {
-	width: 190px;
 	height: 109px;
+	width: 190px;
 }
 
 .pronosticos i  {
@@ -116,74 +139,53 @@ footer .min {
 }
 
 .numeros {
-	display: flex;
-	justify-content: flex-end;
 	align-items: flex-end;
-}
-
-h1 {
-	font-size: 17px;
-	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 600;
-	letter-spacing: 3px;
-	padding-top: 30px;
+	justify-content: flex-end;
 }
 
 #clima-actual h1 {
 	letter-spacing: 5px;
 	padding-top: 10px;
-	font-weight: 800;
 }
 
-#clima-actual {
-	border-bottom-left-radius:  20px;
-	border-top-left-radius: 20px;
-}
-
-img {
-	border-top-left-radius: 20px;
-}
-
- i {
+i {
 	font-size: 34px;
 	padding-top: 40px;
 }
 
+h1 {
+	font-size: 17px;
+	font-weight: 600;	
+	letter-spacing: 3px;
+	padding-top: 30px;
+	text-transform: uppercase;
+}
+
 h2 {
-	font-family: 'Montserrat', sans-serif;
 	font-size: 34px;
-	font-weight: 500;
 	padding-top: 4px;
 }
 
 h3 {
-	font-family: 'Montserrat', sans-serif;
 	font-size: 24px;
-	font-weight: 300;
 }
 
 h4 {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 500;
-	font-size: 14px;
-	padding-top: 10px;
-	letter-spacing: 5px;
 	color: #ccc;
+	font-size: 15px;
+	letter-spacing: 5px;
+	padding-top: 10px;
 	text-transform: uppercase;
 }
 
 h5 {
-	font-family: 'Montserrat', sans-serif;
-	text-transform: uppercase;
-	font-weight: 800;
 	font-size: 15px;
-	padding-top: 35px;
 	padding-bottom: 35px; 
+	padding-top: 35px;
+	text-transform: uppercase;
 }
 
 h5 span {
-	font-weight: 300;
 	font-size: 30px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -191,7 +193,6 @@ h5 span {
 
 #temp-act {
 	font-size: 60px;
-	font-weight: 500;
 }
 
 @media screen and (max-width: 1150px) {
@@ -201,7 +202,7 @@ h5 span {
 	.pronosticos {
 		display: flex;
 		flex-direction: column;
-		width: 127px;
+		width: 120px;
 	}
 	.flex2 {
 		display: none;
@@ -223,9 +224,9 @@ h5 span {
 	}
 	.numeros {
 		justify-content: center;	
-	}
+	}	
 	.parts {
-		width: 127px;
+		width: 120px;
 		text-align: center;
 	}
 	.pronosticos > :first-child {
@@ -245,7 +246,17 @@ h5 span {
 		height: 60px;
 	}
 	.container {
-		width: 380px;
+		width: 360px;
 		margin-right: 0px;
+	}
+	#clima-actual {
+		width: 360px;
+	}
+	#imagen {
+		width: 100%;
+		border-top-left-radius: 0;
+	}
+	.radio-arriba-derecha {
+		border-top-right-radius: 0
 	}
 }

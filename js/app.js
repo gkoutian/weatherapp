@@ -1,16 +1,20 @@
 (function () {
+
+function updateBoxDimension() {
+  var $container = $('.container');
+  if ($(window).height() > 650) {
+    var containerTop = ($(window).height()) / 2 - ($container.height() / 2);
+    $container.css({marginTop: containerTop});
+  }
+  var containerLeft = (($(window).width()) - ($container.width())) / 2;
+  $container.css({marginLeft: containerLeft});
+}
+
+$(updateBoxDimension);
+
 $(document).ready(function() {
   $(updateBoxDimension);
-  $(window).on('resize', updateBoxDimension);
-  function updateBoxDimension() {
-      var $container = $('.container');
-      if ($(window).height() > 650) {
-        var containerTop = ($(window).height()) / 2 - ($container.height() / 2);
-        $container.css({marginTop: containerTop});
-      }
-      var containerLeft = (($(window).width()) - ($container.width())) / 2;
-      $container.css({marginLeft: containerLeft});
-    }
+  $(window).on('resize', updateBoxDimension);  
 });
 
 var lat;
@@ -43,6 +47,7 @@ function showPosition(position) {
   iniciar(lat, long);
   console.log("salio bien")
 }
+
 function basicPosition() {
   lat = -34.5977063;
   long = -58.4344687;
