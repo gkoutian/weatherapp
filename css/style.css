@@ -92,6 +92,8 @@ body {
 footer {
 	justify-content: space-between;
 	padding: 0 20px 0 20px;
+	width: 80%;
+	margin: 0 auto;
 }
 
 footer h4, footer i {
@@ -180,8 +182,8 @@ h4 {
 
 h5 {
 	font-size: 15px;
-	padding-bottom: 35px; 
-	padding-top: 35px;
+	padding-bottom: 25px; 
+	padding-top: 2	5px;
 	text-transform: uppercase;
 }
 
@@ -258,5 +260,22 @@ h5 span {
 	}
 	.radio-arriba-derecha {
 		border-top-right-radius: 0
+	}
+	#dia1, #dia2, #dia3 {
+		font-size: 11px;
+	}
+
+	#dia1 {
+		text-align: right;
+	}
+
+	#dia3 {
+		text-align: left;
+	}
+
+	#actual {
+		font-size: 12px;
+		width: 70%;
+		margin: 0 auto;
 	}
 }
